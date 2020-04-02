@@ -1,0 +1,22 @@
+body{
+    margin:0px;
+    width: 100%;
+    position: relative; 
+    top: -22px;
+
+}
+
+.header{
+    background: rgb(10, 10, 70);
+    border-bottom: 5px solid red;
+
+}
+h1{
+    color: White;
+    text-align: center;
+}
+p{
+    color: white;
+    text-emphasis: center;
+
+}
