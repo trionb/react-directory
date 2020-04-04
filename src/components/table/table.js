@@ -1,26 +1,37 @@
 import React from "react";
-import "./table.css"
+import "./Table.css"
 
-function tableInfo() {
+function tableInfo(prop) {
+    console.log(prop)
     return (
         <>
             <table>
-                <tr>
+                <thead>
                     <th>Image</th>
                     <th>Name</th>
                     <th>Phone</th>
                     <th>Email</th>
                     <th>DOB</th>
-                </tr>
-                <tr class="infoTbl">
+                </thead>
+                <tbody>
+                  <tr class="infoTbl">
                     <th>
-                        <img src="https://via.placeholder.com/45"></img>
+                        <img alt={prop.picture} src={prop.image} />
                     </th>
-                    <th>{Name}</th>
-                    <th>{Phone}</th>
-                    <th>{Email}</th>
-                    <th>{DOB}</th>
+                    <th>
+                        {prop.first} {prop.last}
+                    </th>
+                    <th>
+                        {prop.phone}
+                    </th>
+                    <th>
+                        <a href="{prop.email}" target="_top">{prop.email}</a>
+                    </th>
+                    <th>
+                        {prop.dob}
+                    </th>
                 </tr>
+                </tbody>
             </table>
         </>
     );

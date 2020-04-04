@@ -2,10 +2,10 @@ import React from "react";
 import "./Header.css"
 
 
-function Nav() {
+function Header() {
     return (
             
-        <header class="header">
+        <header className="header col-xs-12">
         <h1>Employee Directory</h1>
         <p>Click on the carrots to filter by heading or use the search box to narrow your result</p>
         </header>
@@ -13,4 +13,4 @@ function Nav() {
   );
 }
 
-export default Nav;
+export default Header;
