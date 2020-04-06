@@ -1,10 +1,24 @@
-import React from "react";
-import "./Table.css"
+import React from "react"; 
+import "./Table.css";
+import SearchInput from "../SearchInput/SearchInput"
+import Header from "../Header/Header"
 
-function tableInfo(prop) {
-    console.log(prop)
+function Table (prop) {
+
+  //Handling input in search bar 
+//   handleInputChange = event => {
+
+//     if (event.target.name === "search") {
+//       const searchTerm = event.target.value.toLowerCase();
+//       this.setState({
+//         search: searchTerm
+//       })
+//     }
+//   }
     return (
         <>
+            <Header />
+            <SearchInput />
             <table>
                 <thead>
                     <th>Image</th>
@@ -14,26 +28,27 @@ function tableInfo(prop) {
                     <th>DOB</th>
                 </thead>
                 <tbody>
-                  <tr class="infoTbl">
-                    <th>
-                        <img alt={prop.picture} src={prop.image} />
-                    </th>
-                    <th>
-                        {prop.first} {prop.last}
-                    </th>
-                    <th>
-                        {prop.phone}
-                    </th>
-                    <th>
-                        <a href="{prop.email}" target="_top">{prop.email}</a>
-                    </th>
-                    <th>
-                        {prop.dob}
-                    </th>
-                </tr>
+                    <tr className="infoTbl">
+                        <td>
+                            <img alt={prop.picture} src={prop.image} />
+                        </td>
+                        <td>
+                            {prop.first} {prop.last}
+                        </td>
+                        <td>
+                            {prop.phone}
+                        </td>
+                        <td>
+                            <a href="{prop.email}" target="_top">{prop.email}</a>
+                        </td>
+                        <td>
+                            {prop.dob}
+                        </td>
+                  </tr>
                 </tbody>
             </table>
         </>
     );
+   
 }
-export default tableInfo;
+export default Table;

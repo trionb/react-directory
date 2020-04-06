@@ -10,3 +10,6 @@ table{
     top: 25px;
     left: 130px;
 }
+td{
+    text-align:center;
+}
