@@ -1,9 +1,20 @@
-import React from "react"; 
+import React, {useState, useEffect} from "react"; 
 import "./Table.css";
 import SearchInput from "../SearchInput/SearchInput"
 import Header from "../Header/Header"
+import API from '../utils/Api'
 
-function Table (prop) {
+function Table () {
+    const [results, setResults] = useState([])
+
+  useEffect(() => {
+    API.Search()
+      .then(res => {
+        console.log(res.data.results)
+        setResults(res.data.results)
+      })
+      .catch(err => console.log(err))
+  }, [])
 
   //Handling input in search bar 
 //   handleInputChange = event => {
@@ -28,27 +39,34 @@ function Table (prop) {
                     <th>DOB</th>
                 </thead>
                 <tbody>
-                    <tr className="infoTbl">
+                {results.map(empList =>(
+                    <tr key={empList.login.uuid} className="infoTbl">
                         <td>
-                            <img alt={prop.picture} src={prop.image} />
+                            <img 
+                            alt={empList.picture.thumbnail} 
+                            src={empList.picture.thumbnail} 
+                            />
                         </td>
                         <td>
-                            {prop.first} {prop.last}
+                            {empList.name.first} {empList.name.last}
                         </td>
                         <td>
-                            {prop.phone}
+                            {empList.phone}
                         </td>
                         <td>
-                            <a href="{prop.email}" target="_top">{prop.email}</a>
+                            <a href="{empList.email}" 
+                            target="_top">{empList.email}
+                            </a>
                         </td>
                         <td>
-                            {prop.dob}
+                            {empList.dob.date}
                         </td>
                   </tr>
-                </tbody>
+                  ))}
+                  </tbody>
             </table>
         </>
     );
-   
+                
 }
 export default Table;
